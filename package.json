@@ -1,0 +1,30 @@
+{
+  "name": "qa-practice-web-cypress-basics",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:open": "npx cypress open",
+    "cy:chrome:headed": "npx cypress run --browser chrome -- headed",
+    "cy:chrome:headless": "npx cypress run --browser chrome",
+    "cy:firefox:headed": "npx cypress run --browser firefox -- headed",
+    "cy:firefox:headless": "npx cypress run --browser firefox",
+    "cy:cloud": "npx cypress run --record --browser chrome --key 4de77ad6-0d63-44ab-a7e0-ad61c3158764",
+    "mocha:run": "npx cypress run --browser chrome --reporter mochawesome --reporter-options reportDir='cypress/results' overwrite=false,html=false,json=true",
+    "mocha:merge": "npx mochawesome-merge 'cypress/results/*.json' > mochawesome.json",
+    "mocha:html": "npx marge mochawesome.json"
+  },
+  "keywords": [],
+  "author": "Ana-Maria",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.0.0",
+    "@testing-library/cypress": "^9.0.0",
+    "cypress": "^12.13.0",
+    "cypress-iframe": "^1.0.1",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.3.0",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}

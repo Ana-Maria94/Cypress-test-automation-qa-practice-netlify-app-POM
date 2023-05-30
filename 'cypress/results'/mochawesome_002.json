@@ -1,0 +1,143 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2023-05-23T11:12:10.234Z",
+    "end": "2023-05-23T11:12:21.180Z",
+    "duration": 10946,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b189062a-6a05-49e0-8a23-405b02c5b66e",
+      "title": "",
+      "fullFile": "cypress\\e2e\\user_auth.cy.js",
+      "file": "cypress\\e2e\\user_auth.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "db0cc4ff-38d5-45ea-9e2c-d43b8ab3e9f4",
+          "title": "user auth test suite",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "login with valid credentials",
+              "fullTitle": "user auth test suite login with valid credentials",
+              "timedOut": null,
+              "duration": 2670,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@admin.com', 'admin123');\n//cy.get('#message').should('be.visible');\n//v1\ncy.get('#message').should('contain', 'admin@admin.com, you have successfully logged in!');\n//or v2\ncy.contains('admin@admin.com, you have successfully logged in!').should('be.visible');",
+              "err": {},
+              "uuid": "47afb3e1-9824-45bd-9f66-9ad1187e1733",
+              "parentUUID": "db0cc4ff-38d5-45ea-9e2c-d43b8ab3e9f4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "login with invalid credentials",
+              "fullTitle": "user auth test suite login with invalid credentials",
+              "timedOut": null,
+              "duration": 1531,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.login('admin@admin.com', 'parolaGresita');\ncy.get('#message').should('be.visible');\ncy.get('#message').should('contain', \"Bad credentials! Please try again! Make sure that you've registered.\");\ncy.contains(\"Bad credentials! Please try again! Make sure that you've registered.\").should('be.visible');",
+              "err": {},
+              "uuid": "0e2ea3c3-3a49-4d16-b78f-92f347d43658",
+              "parentUUID": "db0cc4ff-38d5-45ea-9e2c-d43b8ab3e9f4",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "register user",
+              "fullTitle": "user auth test suite register user",
+              "timedOut": null,
+              "duration": 3233,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const randomLastName = _faker.faker.person.lastName();\n_LeftSideMenuPage.default.getForms().click();\n_LeftSideMenuPage.default.getRegisterFormLink().click();\n_RegisterPage.default.getFirstName().type('Predefined value');\n//cy.pause();\n_RegisterPage.default.getFirstName().clear().type(_faker.faker.person.firstName());\n_RegisterPage.default.getLastName().type(randomLastName);\n_RegisterPage.default.getPhone().type('0989876546', {\n  log: false\n});\n_RegisterPage.default.getSelectCountry('Australia');\n_RegisterPage.default.getEmail().type(randomLastName + \".\" + _faker.faker.internet.email({\n  firstName: 'Jane'\n}));\n_RegisterPage.default.getPassword().type(_faker.faker.internet.password(), {\n  log: false\n});\n_RegisterPage.default.getTermsAndConsCheckBox().click();\n_RegisterPage.default.getRegisterBtn().click();\ncy.get('#message').should('be.visible');\ncy.get('#message').should('contain', \"The account has been successfully created!\");\ncy.contains(\"The account has been successfully created!\").should('be.visible');",
+              "err": {},
+              "uuid": "b8f25ccf-60de-4688-9eb8-a5a65f5dda69",
+              "parentUUID": "db0cc4ff-38d5-45ea-9e2c-d43b8ab3e9f4",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "47afb3e1-9824-45bd-9f66-9ad1187e1733",
+            "0e2ea3c3-3a49-4d16-b78f-92f347d43658",
+            "b8f25ccf-60de-4688-9eb8-a5a65f5dda69"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7434,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "'cypress/results'",
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "6.2.0"
+    }
+  }
+}
